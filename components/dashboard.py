@@ -47,7 +47,6 @@ def show_dashboard():
 
     # Simulate monthly cashflow chart
     st.subheader("Projected Monthly Cashflow")
-    # Simple model: each position yields (invested * IRR)/12 per month
     monthly = {}
     for r in reservations:
         proj = projects[r["project_id"]]
@@ -65,4 +64,3 @@ def show_dashboard():
     for r in reservations:
         proj = projects[r["project_id"]]
         st.write(f"- {proj['name']}: [Download K-1]()")
-
