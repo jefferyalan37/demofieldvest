@@ -1,5 +1,3 @@
-# components/onboarding.py
-
 import streamlit as st
 from integrations import calculate_tax_savings
 
@@ -33,16 +31,13 @@ def run_onboarding():
                  "NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI",
                  "SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"]
             )
-            accredited = st.radio(
-                "Accredited investor?",
-                ("Yes", "No")
-            )
+            accredited = st.radio("Accredited investor?", ("Yes", "No"))
             submitted = st.form_submit_button("Next")
         if submitted:
             st.session_state.profile = {
                 "income": income,
                 "state": state,
-                "accredited": accredited == "Yes"
+                "accredited": (accredited == "Yes")
             }
             st.session_state.onboarding_step = 3
         return
@@ -51,13 +46,8 @@ def run_onboarding():
     if step == 3:
         profile = st.session_state.profile
         st.header("Estimate Your Tax Savings")
-        st.write(
-            f"For a $100,000 investment, your estimated first-year tax savings are:"
-        )
-        tax_savings = calculate_tax_savings(
-            amount=100_000,
-            income_range=profile["income"]
-        )
+        st.write("For a $100,000 investment, your estimated first-year tax savings are:")
+        tax_savings = calculate_tax_savings(amount=100_000, income_range=profile["income"])
         st.metric(label="Tax Savings", value=f"${tax_savings:,.0f}")
         if st.button("View Investments"):
             st.session_state.onboarding_complete = True
