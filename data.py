@@ -1,4 +1,4 @@
-\# data.py
+# data.py
 
 def get_projects():
     """
