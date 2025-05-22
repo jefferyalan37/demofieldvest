@@ -1,0 +1,8 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.venv/
+.streamlit/
+.DS_Store
