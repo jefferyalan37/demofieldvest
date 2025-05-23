@@ -4,5 +4,4 @@ __pycache__/
 *.so
 *.egg-info/
 .venv/
-.streamlit/
 .DS_Store
