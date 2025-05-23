@@ -13,7 +13,6 @@ env/
 ENV/
 
 # Streamlit temp/cache
-.streamlit/
 
 # OS files
 .DS_Store
