@@ -5,27 +5,6 @@ from components.browse import show_browse
 from components.dashboard import show_dashboard
 import streamlit as st
 
-# ——— Inject Bodoni Moda + custom CSS ———
-st.markdown(
-    """
-    <style>
-      /* 1. Import Bodoni Moda (400 & 700) */
-      @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&display=swap');
-
-      /* 2. Apply it globally */
-      html, body, [class*="css"] {
-        font-family: 'Bodoni Moda', serif !important;
-      }
-
-      /* 3. Make all headings regular weight (400) */
-      h1, h2, h3, h4, h5, h6 {
-        font-weight: 400 !important;
-      }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
 # Now your normal page config…
 st.set_page_config(page_title="Fieldvest Demo", layout="wide")
 
