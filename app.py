@@ -2,26 +2,28 @@
 
 import streamlit as st
 
-# ——— This MUST be the very first Streamlit command! ———
+# ← THIS MUST BE the VERY FIRST Streamlit command in your entire app
 st.set_page_config(page_title="Fieldvest Demo", layout="wide")
 
+# Now it’s safe to import your components, provided they
+# don't run any st.* calls at import time!
 from components.onboarding import run_onboarding
-from components.browse import show_browse
+from components.browse    import show_browse
 from components.dashboard import show_dashboard
 
 def main():
     st.sidebar.title("Navigation")
 
-    # initialize your onboarding flag
+    # initialize onboarding flag
     if "onboarding_complete" not in st.session_state:
         st.session_state.onboarding_complete = False
 
-    # if not done, run the onboarding flow
+    # run onboarding flow if needed
     if not st.session_state.onboarding_complete:
         run_onboarding()
         return
 
-    # once onboarded, show sidebar nav
+    # once onboarded, show the nav
     choice = st.sidebar.radio("Go to", ["Browse Investments", "Dashboard"])
     if choice == "Browse Investments":
         show_browse()
