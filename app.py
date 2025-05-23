@@ -1,18 +1,11 @@
 import streamlit as st
+st.set_page_config(page_title="Fieldvest Demo", layout="wide")  # ← ONLY here
 
 from components.onboarding import run_onboarding
 from components.browse import show_browse
 from components.dashboard import show_dashboard
-import streamlit as st
-
-# Now your normal page config…
-st.set_page_config(page_title="Fieldvest Demo", layout="wide")
-
-# …the rest of your app.py follows
-
 
 def main():
-    st.set_page_config(page_title="Fieldvest Demo", layout="wide")
     st.sidebar.title("Navigation")
 
     # Initialize flag
