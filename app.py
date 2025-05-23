@@ -1,5 +1,5 @@
 import streamlit as st
-st.set_page_config(page_title="Fieldvest Demo", layout="wide")  # ← ONLY this call
+st.set_page_config(page_title="Fieldvest Demo", layout="wide")  # ← ONLY this call, and FIRST!
 
 from components.onboarding import run_onboarding
 from components.browse import show_browse
@@ -8,16 +8,16 @@ from components.dashboard import show_dashboard
 def main():
     st.sidebar.title("Navigation")
 
-    # Initialize flag
+    # initialize onboarding flag
     if "onboarding_complete" not in st.session_state:
         st.session_state.onboarding_complete = False
 
-    # If not onboarded yet, run the wizard
+    # run onboarding if needed
     if not st.session_state.onboarding_complete:
         run_onboarding()
         return
 
-    # Once onboarded, show sidebar nav
+    # once onboarded, show nav
     choice = st.sidebar.radio("Go to", ("Browse Investments", "Dashboard"))
     if choice == "Browse Investments":
         show_browse()
